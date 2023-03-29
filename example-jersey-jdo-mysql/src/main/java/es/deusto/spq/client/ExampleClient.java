@@ -22,7 +22,7 @@ public class ExampleClient {
 
 	private static final String USER = "dipina";
 	private static final String PASSWORD = "dipina";
-
+	//dfgjksdahg
 
 	private Client client;
 	private WebTarget webTarget;
