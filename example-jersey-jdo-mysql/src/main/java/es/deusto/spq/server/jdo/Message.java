@@ -26,4 +26,5 @@ public class Message {
     public String toString() {
         return "Message: message --> " + this.text + ", timestamp -->  " + new Date(this.timestamp);
     }
+    //H
 }
