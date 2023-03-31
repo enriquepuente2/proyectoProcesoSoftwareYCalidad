@@ -144,6 +144,9 @@ public class VentanaInicioSesion extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				/**
+				 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
+				 */
 				BaseDatos.closeBD(connection);
 			}
 			
