@@ -58,8 +58,8 @@ public class VentanaInicial extends JFrame {
 		/**
 		 * DESCOMENTAR JPANEL 
 		 */
-		//JPanel panel = new PanelConFondo((new ImageIcon("imagenes/ikea.gif").getImage()));
-		//panelCentro.add(panel);
+		JPanel panel = new PanelConFondo((new ImageIcon("imagenes/ikea.gif").getImage()));
+		panelCentro.add(panel);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(100, 149, 237));

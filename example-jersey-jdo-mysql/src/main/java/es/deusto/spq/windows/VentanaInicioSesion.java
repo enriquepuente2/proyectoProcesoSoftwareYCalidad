@@ -46,10 +46,16 @@ public class VentanaInicioSesion extends JFrame {
 	private static boolean admin = false;
 	public VentanaInicioSesion() {
 		carrito = new ArrayList<>();
+		/**
+		 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
+		 */
 		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
 		
 		mapa = new HashMap<>();
 		
+		/**
+		 * PROBLEMA. Duda = ¿Cómo creamos la conexión con la BBDD?
+		 */
 		BaseDatos.crearTablasUsuario(con);
 		setBounds(250, 225, 1000, 508);
 		
@@ -89,6 +95,9 @@ public class VentanaInicioSesion extends JFrame {
 				String erContr = "[0-9]{3}";
 				
 				if(Pattern.matches(erDniA, dniA) && Pattern.matches(erContrA, contraseniaA)) {
+					 /**
+					  * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
+					  */
 					 BaseDatos.obtenerAdmin(con, dniA);
 					 JOptionPane.showMessageDialog(null, "Bienvenido ADMIN", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
 					 VentanaInicial.dniA = dniA;
@@ -96,6 +105,9 @@ public class VentanaInicioSesion extends JFrame {
 					 dispose();
 				}else if(Pattern.matches(erDni, dni) && Pattern.matches(erContr, contrasenia)) {
 					Usuario u = new Usuario();
+					/**
+					 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
+					 */
 					u = BaseDatos.obtenerUsuario(con, dni);
 					if(u != null) {
 						if(u.getContrasenia().equals(contrasenia)) {
@@ -120,58 +132,6 @@ public class VentanaInicioSesion extends JFrame {
 				txtDni.setText("");
 				txtContr.setText("");
 				
-				
-//				TENIAMOS ANTES
-//				if(dniA.equals("ADMIN") && contraseniaA.equals("ADMIN")) {
-//					VentanaPrincipalAdmin v = new VentanaPrincipalAdmin();
-//				}
-//				
-//				String dni = txtDni.getText();
-//				String erDni = "[0-9]{3}[A-Z]";
-//				String contrasenia = txtContr.getText();
-//				String erContr = "[0-9]{3}";
-				
-//				if(Pattern.matches(erDni, dni) && Pattern.matches(erContr, contrasenia)) {
-//					//Comprobamos si el usuario esta registrado
-//					Usuario u = new Usuario();
-//					u = BaseDatos.obtenerUsuario(con, dni);
-////					if(dni.equals("ADMIN") && contrasenia.equals("ADMIN")) {
-////						JOptionPane.showMessageDialog(null, "Bienvenido ADMIN", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
-////						VentanaPrincipalAdmin.dniA = dni;
-////					}
-//					if(u != null) {
-//						if(u.getContrasenia().equals(contrasenia)) {
-//							JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
-//							VentanaInicioSesion.dni = dni;
-//							dispose();
-//						}else {
-//							JOptionPane.showMessageDialog(null, "La contraseña es erronea!", "ERROR", JOptionPane.ERROR_MESSAGE);
-//						}
-//					}else {
-//						JOptionPane.showMessageDialog(null, "No existe un usuario para ese DNI! \n Vuelve a introducirlo ó deberas de registrar! ", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-//					}
-//				}else {
-//					JOptionPane.showMessageDialog(null, "Los datos no cumplen los requisitos", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-//					
-//				}
-//				txtDni.setText("");
-//				txtContr.setText("");
-				
-//				/*
-//				if(Pattern.matches(refexContrasenia, contrasenia)) {
-//					JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.INFORMATION_MESSAGE);
-//					
-//				}else {
-//					JOptionPane.showMessageDialog(null, "La contraseña es erronea", "ERROR", JOptionPane.ERROR_MESSAGE);
-//				}*/
-//				if(contrasenia.equals(BaseDatos.obtenerContrasena(connection, txtDni.getText()))) {
-//					JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.INFORMATION_MESSAGE);
-//					
-//					new VentanaPrincipal();
-//					
-//				}else {
-//					JOptionPane.showMessageDialog(null, "La contraseña es erronea", "ERROR", JOptionPane.ERROR_MESSAGE);
-//				}
 			}
 		});
 		
@@ -246,7 +206,9 @@ public class VentanaInicioSesion extends JFrame {
 		panel_3.add(panel_5);
 		
 		setVisible(true);
-		
+		/**
+		 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
+		 */
 		connection= BaseDatos.initBD("data/DeustoIkea");
 		BaseDatos.crearTablasUsuario(connection);
 		BaseDatos.crearTablasProducto(connection);

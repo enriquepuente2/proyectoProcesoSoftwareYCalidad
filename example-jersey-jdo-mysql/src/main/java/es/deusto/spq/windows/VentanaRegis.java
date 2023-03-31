@@ -45,10 +45,15 @@ public class VentanaRegis extends JFrame {
 	public VentanaRegis() {
 		vent = this;
 		
+		/**
+		 * PROBLEMA. Duda = ¿Cómo estableces la conexión con la BBDD?
+		 */
 		//Conexion  con la base de datos y  creamos la tabla 
-		
 		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
 		
+		/**
+		 * PROBLEMA. Duda= ¿Cómo nos conectamos con la BBDD? 
+		 */
 		BaseDatos.crearTablasUsuario(con);
 
 		
@@ -95,8 +100,14 @@ public class VentanaRegis extends JFrame {
 					JOptionPane.showMessageDialog(null,"El dni introducido es incorrecto!", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}else {
 					System.out.println();
+					/**
+					 * PROBLEMA. Duda = ¿Cómo nos conectamos con la BBDD?
+					 */
 					boolean encontrada = BaseDatos.buscarUsuario(con, dni);
 					if(!encontrada) {
+						/**
+						 * PROBLEMA. Duda = ¿Cómo nos conectamos con la BBDD?
+						 */
 						BaseDatos.insertarUsuario(con, nombre, dni, mail, domicilio, contrasenia, 0);
 						JOptionPane.showMessageDialog(null,"Registro realizado correctamente!", "REGISTRO REALIZADO", JOptionPane.DEFAULT_OPTION);
 						System.out.println("El usuario ha sido registrado correctamente!");
@@ -114,16 +125,7 @@ public class VentanaRegis extends JFrame {
 					
 					
 				}
-				
-//				String refexContrasenia = "[A-Z][a-z]{0,20}[0-9][^A-Za-z0-9]";
-//				String contrasenia = txtContr.getText();
-//				
-//				if(Pattern.matches(refexContrasenia, contrasenia)) {
-//					JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.INFORMATION_MESSAGE);
-//					
-//				}else {
-//					JOptionPane.showMessageDialog(null, "La contraseña es erronea", "ERROR", JOptionPane.ERROR_MESSAGE);
-//				}
+
 			}
 		});
 		
